@@ -8,7 +8,7 @@ Construido con **HTML5, CSS3, JavaScript ES Modules, Firebase Authentication y C
 
 ## Demo
 
-[https://skizm07.github.io/WayTure/](https://skizm07.github.io/WayTure/)
+[https://skizm07.github.io/WayTure/](https://jpesjp.github.io/WAYTUREPRO/)
 
 ---
 
