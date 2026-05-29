@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | WayTure</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container header-wrap">
+      <a class="logo" href="index.html" aria-label="Volver al inicio">
+        <span class="logo-badge" aria-hidden="true">
+          <img src="assets/WayTureNoMAP.png" alt="WayTure">
+        </span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#funciones">Funciones</a>
+        <a href="login.html" class="btn">Login</a>
+        <a href="registro.html">Registro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-layout">
+      <section class="hero-panel">
+        <div class="hero-content">
+          <span class="eyebrow">Acceso seguro a WayTure</span>
+          <h1>Vuelve a tu viaje soñado en segundos</h1>
+          <p>Accede a tus planes, presupuesto, lugares guardados y notas personales desde un solo lugar.</p>
+
+          <div class="mini-stats">
+            <article>
+              <strong>+18k</strong>
+              <span>itinerarios guardados</span>
+            </article>
+            <article>
+              <strong>4.9/5</strong>
+              <span>experiencia valorada</span>
+            </article>
+            <article>
+              <strong>62</strong>
+              <span>destinos en tendencia</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-card">
+        <div>
+          <span class="eyebrow">Acceso seguro</span>
+          <h2>Iniciar sesión</h2>
+          <p>Entra con el correo y contraseña que registraste en WayTure.</p>
+        </div>
+
+        <form id="loginForm">
+          <div>
+            <label for="loginEmail">Correo o alias de usuario</label>
+            <input id="loginEmail" name="loginEmail" type="text" placeholder="tu@correo.com o tu_alias" required autocomplete="username">
+          </div>
+
+          <div>
+            <label for="loginPassword">Contraseña</label>
+            <input id="loginPassword" name="loginPassword" type="password" placeholder="Escribe tu contraseña" required minlength="6" autocomplete="current-password">
+          </div>
+
+          <button class="submit-btn" type="submit">Entrar a WayTure</button>
+        </form>
+
+        <div class="helper-row">
+          <span>Puedes entrar con tu correo o con tu alias</span>
+          <a href="registro.html">Crear una cuenta</a>
+        </div>
+
+        <div id="welcomeBox" class="welcome-box" aria-live="polite"></div>
+
+        <p>¿Aún no tienes cuenta? <a class="switch-link" href="registro.html">Regístrate aquí</a></p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WayTure - Viajes que inspiran</p>
+  </footer>
+
+  <script type="module" src="js/login-page.js"></script>
+</body>
+</html>

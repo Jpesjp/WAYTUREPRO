@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WayTure: planifica viajes reales con itinerarios, mapas, presupuesto, experiencias y organización inteligente." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>WayTure | Planifica tu viaje perfecto</title>
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-wrap">
+      <a class="logo" href="#inicio" aria-label="WayTure Inicio">
+        <span class="logo-badge" aria-hidden="true">
+          <img src="assets/WayTureNoMAP.png" alt="Logo WayTure" />
+        </span>
+        <span class="logo-word">WayTure</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú de navegación">
+        <span class="menu-icon" aria-hidden="true">☰</span>
+        <span>Menú</span>
+      </button>
+
+      <nav id="mainNav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#funciones">Funciones</a>
+        <a href="rastreo-viaje.html" data-auth-public-link>Rastreo</a>
+        <a href="#destinos">Destinos</a>
+        <a href="#planificador">Planificador</a>
+        <a href="#multimedia">Multimedia</a>
+        <a id="navLoginLink" href="login.html" data-login-link>Login</a>
+        <a id="navRegisterLink" href="registro.html" class="btn btn-secondary" data-register-link>Registrarse</a>
+        <div class="user-menu" data-user-menu hidden>
+          <button class="user-menu-button" type="button" data-user-menu-button aria-expanded="false" aria-label="Abrir menú de usuario">
+            <span class="user-avatar" data-user-initials>U</span>
+            <span class="user-menu-name" data-user-name>Usuario</span>
+          </button>
+          <div class="user-menu-dropdown" data-user-menu-dropdown>
+            <p class="user-menu-greeting" data-user-greeting></p>
+            <a href="panel-usuario.html#crear-viaje" data-user-link>Crear viaje</a>
+            <a href="panel-usuario.html#mis-viajes" data-user-link>Mis viajes asignados</a>
+            <a href="panel-usuario.html#datos-cuenta" data-user-link>Datos de cuenta</a>
+            <a href="admin-viajes.html" data-admin-link hidden>Panel admin</a>
+            <button type="button" data-logout-button>Cerrar sesi&oacute;n</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"> Plataforma de viaje inteligente</span>
+          <h1 id="tituloPrincipal">Bienvenidos a WAYTURE</h1>
+          <p>
+            Organiza destinos, actividades, presupuesto, mapas, notas personales y experiencias multimedia en un solo lugar.
+            WayTure transforma una idea de viaje en un itinerario visual, funcional y emocionante.
+          </p>
+
+          <p id="sessionGreeting" class="session-greeting" data-user-greeting></p>
+
+          <ul class="hero-list">
+            <li> Planificación de viajes sencilla</li>
+            <li> Itinerarios diarios organizados</li>
+            <li> Mapas interactivos y lugares guardados</li>
+            <li> Presupuesto del viaje con cálculo automático</li>
+          </ul>
+
+          <div class="hero-actions">
+            <a id="heroRegisterLink" href="registro.html" class="btn btn-primary" data-register-link>Crear cuenta</a>
+            <a id="heroLoginLink" href="login.html" class="btn btn-secondary" data-login-link>Iniciar sesi&oacute;n</a>
+            <a class="btn btn-primary" href="panel-usuario.html#mis-viajes" data-user-link hidden>Ir a mi panel</a>
+          </div>
+
+          <div class="hero-stats">
+            <article class="stat-card glass">
+              <strong>+18k</strong>
+              <span>viajes creados</span>
+            </article>
+            <article class="stat-card glass">
+              <strong>4.9/5</strong>
+              <span>valoración media</span>
+            </article>
+            <article class="stat-card glass">
+              <strong>62</strong>
+              <span>países soñados</span>
+            </article>
+          </div>
+        </div>
+
+        <aside class="hero-panel glass reveal" aria-label="Vista previa de viaje">
+          <div class="panel-top">
+            <div>
+              <p class="panel-kicker">Viaje destacado</p>
+              <strong class="panel-title">París + Roma + Barcelona</strong>
+            </div>
+            <div class="panel-bullets" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="trip-preview">
+            <div class="trip-image">
+              <span class="tag">12 días · Primavera</span>
+            </div>
+            <div class="trip-content">
+              <div>
+                <h2 class="trip-preview-title">Ruta europea inolvidable</h2>
+                <p class="muted">Combina cultura, gastronomía, historia y vistas icónicas en una sola aventura.</p>
+              </div>
+              <div class="trip-row">
+                <span>Presupuesto usado</span>
+                <strong>$2.150 / $2.900</strong>
+              </div>
+              <div class="progress" aria-label="Progreso del presupuesto">
+                <span></span>
+              </div>
+              <div class="trip-row">
+                <span>Hospedaje reservado</span>
+                <strong>8 de 12 noches</strong>
+              </div>
+              <div class="trip-row">
+                <span>Lugares guardados</span>
+                <strong>31 sitios</strong>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="funciones">
+      <div class="container">
+        <h2 class="section-title reveal">Todo lo que necesitas para viajar mejor</h2>
+        <p class="section-subtitle reveal">
+          Organiza cada aspecto de tu viaje en una sola plataforma. Desde el primer destino hasta el último recuerdo.
+        </p>
+
+        <div class="features-grid">
+          <article class="feature-card reveal">
+            <div class="icon">✈️</div>
+            <h3>Planificación inteligente</h3>
+            <p>Crea viajes, define destinos y organiza cada detalle en una interfaz visual y profesional.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon">🗓️</div>
+            <h3>Itinerario diario</h3>
+            <p>Distribuye actividades por horas para tener control total de tu experiencia de viaje.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon">🗺️</div>
+            <h3>Mapas y lugares</h3>
+            <p>Ubica destinos con iframe, consulta zonas turísticas y visualiza rutas inspiradoras.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="icon">💰</div>
+            <h3>Presupuesto real</h3>
+            <p>Controla gastos aproximados de transporte, comida y actividades con cálculo automático.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="center-message reveal">
+      <p>Viajar abre la mente y el corazón, pero planificar bien convierte los sueños en recuerdos inolvidables.</p>
+    </div>
+
+    <section class="section float-section" id="destinos">
+      <div class="container">
+        <h2 class="section-title reveal">Destinos populares</h2>
+        <p class="intro reveal">
+          Elige el tipo de experiencia que más se adapta a tu próxima aventura.
+        </p>
+
+        <div class="float-container clearfix">
+          <article class="float-box reveal">
+            <img src="assets/playa.jpg" alt="Playa tropical con agua turquesa" />
+            <div class="content">
+              <h3>Playa</h3>
+              <p>Perfecta para descanso, paisajes naturales, fotografía, buceo y amaneceres inolvidables.</p>
+            </div>
+          </article>
+
+          <article class="float-box reveal">
+            <img src="assets/montana.jpg" alt="Montaña nevada y senderos naturales" />
+            <div class="content">
+              <h3>Montaña</h3>
+              <p>Ideal para aventura, senderismo, clima fresco y experiencias conectadas con la naturaleza.</p>
+            </div>
+          </article>
+
+          <article class="float-box reveal">
+            <img src="assets/ciudad.jpg" alt="Ciudad moderna iluminada de noche" />
+            <div class="content">
+              <h3>Ciudad</h3>
+              <p>La mejor opción para cultura, gastronomía, museos, compras y experiencias urbanas vibrantes.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Experiencias recomendadas</h2>
+        <p class="section-subtitle reveal">Descubre los destinos más valorados por nuestra comunidad de viajeros.</p>
+
+        <div class="destinations-grid">
+          <article class="destination-card reveal">
+            <img src="assets/paris.jpg" alt="Vista destacada de París" />
+            <div class="destination-info">
+              <h3>París 🇫🇷</h3>
+              <p>Arte, cafés, arquitectura clásica y una atmósfera romántica que nunca pasa de moda.</p>
+              <div class="destination-meta">
+                <span>⭐ 4.9</span>
+                <a class="text-link" href="#mapa">Ver en mapa</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="destination-card reveal">
+            <img src="assets/amsterdam.jpg" alt="Destino destacado de Ámsterdam" />
+            <div class="destination-info">
+              <h3>Ámsterdam 🇳🇱</h3>
+              <p>Canales, bicicletas, museos y un entorno visual perfecto para viajes tranquilos y fotogénicos.</p>
+              <div class="destination-meta">
+                <span>⭐ 4.8</span>
+                <a class="text-link" href="#mapa">Explorar ruta</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="destination-card reveal">
+            <img src="assets/tokyo.jpg" alt="Destino destacado de Tokio" />
+            <div class="destination-info">
+              <h3>Tokio 🇯🇵</h3>
+              <p>Tradición y tecnología en una sola ciudad, con barrios únicos, comida memorable y ritmo futurista.</p>
+              <div class="destination-meta">
+                <span>⭐ 4.9</span>
+                <a class="text-link" href="#mapa">Planear visita</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="planificador">
+      <div class="container planner-grid">
+        <article class="planner-card reveal">
+          <span class="eyebrow">🗓️ Itinerario del día</span>
+          <h2 class="planner-title">Organiza tu aventura paso a paso</h2>
+          <p class="planner-lead">Distribuye cada actividad a lo largo del día para aprovechar al máximo tu tiempo en destino.</p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-hour">08:00</div>
+              <div>
+                <h3>Desayuno con vista</h3>
+                <p>Empieza el día en un café local con terraza y productos típicos de la ciudad.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-hour">10:30</div>
+              <div>
+                <h3>Recorrido cultural</h3>
+                <p>Visita museos, monumentos o barrios históricos incluidos dentro del plan de viaje.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-hour">14:00</div>
+              <div>
+                <h3>Almuerzo típico</h3>
+                <p>Reserva un espacio para probar gastronomía local y agregar observaciones personales.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-hour">18:30</div>
+              <div>
+                <h3>Atardecer y fotos</h3>
+                <p>Guarda ubicaciones ideales para cerrar el día con paisajes y experiencias memorables.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="budget-widget reveal">
+          <span class="eyebrow">💰 Presupuesto interactivo</span>
+          <h3>Calcula tu gasto estimado</h3>
+          <p>Tus valores se guardan automáticamente para que puedas retomar tu planificación cuando quieras.</p>
+
+          <div class="budget-controls">
+            <div>
+              <label for="transport">Transporte</label>
+              <input type="number" id="transport" placeholder="Ej. 220" min="0" />
+            </div>
+            <div>
+              <label for="hotel">Hospedaje</label>
+              <input type="number" id="hotel" placeholder="Ej. 650" min="0" />
+            </div>
+            <div>
+              <label for="food">Comida</label>
+              <input type="number" id="food" placeholder="Ej. 180" min="0" />
+            </div>
+            <div>
+              <label for="activities">Actividades</label>
+              <input type="number" id="activities" placeholder="Ej. 140" min="0" />
+            </div>
+            <button class="btn btn-primary" id="saveBudget" type="button">Guardar presupuesto</button>
+          </div>
+
+          <div class="budget-list">
+            <div class="budget-item"><span>Total estimado</span><strong id="budgetTotal">$0</strong></div>
+            <div class="budget-item"><span>Estado</span><strong id="budgetState">Pendiente</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="mapa">
+      <div class="container map-grid">
+        <article class="map-card reveal">
+          <span class="eyebrow">🗺️ Explorar destinos</span>
+          <h3>Encuentra tu próximo destino</h3>
+          <p>Explora el destino antes de partir. Ubica hoteles, restaurantes y puntos de interés en el área.</p>
+          <div class="map-search">
+            <a class="btn btn-secondary" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Abrir Google Maps</a>
+            <a class="btn btn-primary" href="#contacto">Solicitar asesoría</a>
+          </div>
+        </article>
+
+        <article class="map-card reveal">
+          <iframe title="Mapa de París" src="https://www.google.com/maps?q=paris&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="multimedia">
+      <div class="container">
+        <h2 class="section-title reveal">Descubre el mundo con WayTure</h2>
+        <p class="section-subtitle reveal">Déjate inspirar por destinos increíbles antes de planificar tu próximo viaje.</p>
+
+        <div class="media-grid">
+          <article class="media-card reveal">
+            <h3>Vídeo de inspiración</h3>
+            <p>Déjate llevar por los paisajes y emociones de un viaje real antes de planificar el tuyo.</p>
+            <div class="video-shell">
+              <video controls poster="assets/fondo.jpg">
+                <source src="assets/viaje.mp4" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+              </video>
+            </div>
+          </article>
+
+          <article class="media-card reveal">
+            <h3>Ambiente sonoro de viaje</h3>
+            <p>Escucha audio ambiental mientras diseñas tu próxima aventura. Esto refuerza el realismo y la inmersión.</p>
+            <div class="audio-shell">
+              <audio controls>
+                <source src="assets/viaje.mp3" type="audio/mpeg" />
+                Tu navegador no soporta audio HTML5.
+              </audio>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container extras-grid">
+        <article class="column-card reveal">
+          <span class="eyebrow">🌍 Destinos populares</span>
+          <h3>Destinos recomendados por viajeros</h3>
+          <p>Explora nuestra lista de los destinos más visitados y encuentra tu próxima aventura.</p>
+          <ul class="column-list">
+            <li>París 🇫🇷</li>
+            <li>Roma 🇮🇹</li>
+            <li>Barcelona 🇪🇸</li>
+            <li>Tokio 🇯🇵</li>
+            <li>Bangkok 🇹🇭</li>
+            <li>New York 🇺🇸</li>
+            <li>Londres 🇬🇧</li>
+            <li>Sídney 🇦🇺</li>
+            <li>Dubái 🇦🇪</li>
+            <li>Río de Janeiro 🇧🇷</li>
+            <li>Cancún 🇲🇽</li>
+            <li>Cartagena 🇨🇴</li>
+            <li>Estambul 🇹🇷</li>
+            <li>Praga 🇨🇿</li>
+            <li>Ámsterdam 🇳🇱</li>
+            <li>Berlín 🇩🇪</li>
+          </ul>
+        </article>
+
+        <article class="editable-card reveal">
+          <span class="eyebrow">📝 Mis notas de viaje</span>
+          <h3>Tu nota personal del viaje</h3>
+          <p>Anota ideas, lugares pendientes y recomendaciones. Tus notas se guardan automáticamente.</p>
+          <div id="editableNote" class="editable-box" contenteditable="true" spellcheck="true">
+            Escribe aquí tu lista de sueños de viaje, recomendaciones, restaurantes o actividades favoritas...
+          </div>
+          <div class="editable-actions">
+            <button class="btn btn-primary" id="saveNote" type="button">Guardar nota</button>
+            <button class="btn btn-secondary" id="clearNote" type="button">Limpiar nota</button>
+          </div>
+        </article>
+
+        <article class="svg-card reveal">
+          <span class="eyebrow">✈️ Rutas aéreas</span>
+          <h3>Ruta aérea ilustrada</h3>
+          <p>Visualiza rutas entre tus destinos favoritos de forma clara e interactiva.</p>
+          <div class="svg-wrap">
+            <svg viewBox="0 0 600 240" role="img" aria-label="Ruta de vuelo entre ciudades">
+              <defs>
+                <linearGradient id="routeGradient" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#38bdf8" />
+                  <stop offset="100%" stop-color="#22c55e" />
+                </linearGradient>
+              </defs>
+              <circle cx="80" cy="160" r="16" fill="#38bdf8" />
+              <circle cx="300" cy="80" r="16" fill="#22c55e" />
+              <circle cx="520" cy="150" r="16" fill="#f59e0b" />
+              <path d="M80 160 C170 60, 210 210, 300 80 S450 70, 520 150" fill="none" stroke="url(#routeGradient)" stroke-width="7" stroke-linecap="round" stroke-dasharray="14 12">
+                <animate attributeName="stroke-dashoffset" values="0;-52" dur="4s" repeatCount="indefinite" />
+              </path>
+              <text x="58" y="195" fill="#e5eefc" font-size="18">Bogotá</text>
+              <text x="280" y="50" fill="#e5eefc" font-size="18">Madrid</text>
+              <text x="498" y="185" fill="#e5eefc" font-size="18">París</text>
+            </svg>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container extras-grid">
+        <article class="canvas-card reveal">
+          <span class="eyebrow">🌅 Horizonte de viaje</span>
+          <h3>Visual del horizonte</h3>
+          <p>Una vista inspiradora del paisaje que te espera en tu próxima aventura.</p>
+          <div class="canvas-wrap">
+            <canvas id="travelCanvas" width="700" height="320"></canvas>
+          </div>
+        </article>
+
+        <article class="community-card reveal">
+          <span class="eyebrow">💾 Mis preferencias</span>
+          <h3>Tus datos guardados</h3>
+          <p>Tu presupuesto, notas y destino favorito se guardan en tu dispositivo para que puedas continuar donde lo dejaste.</p>
+          <div class="budget-list">
+            <div class="budget-item"><span>Destino favorito</span><strong id="favoriteDestination">Sin elegir</strong></div>
+            <div class="budget-item"><span>Última nota guardada</span><strong id="noteStatus">Pendiente</strong></div>
+          </div>
+          <div class="editable-actions">
+            <button class="btn btn-accent" id="setFavorite" type="button">Marcar Tokio como favorito</button>
+          </div>
+        </article>
+
+        <article class="community-card reveal">
+          <span class="eyebrow">🎯 Categorías</span>
+          <h3>Filtra por tipo de viaje</h3>
+          <p>Selecciona el tipo de experiencia que buscas para tu próxima aventura y encuentra destinos afines.</p>
+          <div class="editable-actions">
+            <button class="chip" type="button">Aventura</button>
+            <button class="chip" type="button">Cultural</button>
+            <button class="chip" type="button">Descanso</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Lo que dicen los viajeros</h2>
+        <p class="section-subtitle reveal">Miles de viajeros ya planifican sus aventuras con WayTure.</p>
+
+        <div class="community-grid">
+          <article class="testimonial-card reveal">
+            <div class="user-row">
+              <div class="avatar avatar-laura" aria-hidden="true">LM</div>
+              <div>
+                <strong>Laura Méndez</strong>
+                <p class="stars">★★★★★</p>
+              </div>
+            </div>
+            <p>"Lo que más me gustó fue poder tener mapa, presupuesto y notas personales en un solo lugar."</p>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="user-row">
+              <div class="avatar avatar-camilo" aria-hidden="true">CR</div>
+              <div>
+                <strong>Camilo Rojas</strong>
+                <p class="stars">★★★★★</p>
+              </div>
+            </div>
+            <p>"Se siente como una app real. La parte visual del itinerario y el presupuesto está excelente."</p>
+          </article>
+
+          <article class="testimonial-card reveal">
+            <div class="user-row">
+              <div class="avatar avatar-andrea" aria-hidden="true">AC</div>
+              <div>
+                <strong>Andrea Castillo</strong>
+                <p class="stars">★★★★★</p>
+              </div>
+            </div>
+            <p>"La usaría para planear un viaje de verdad. Tiene una estética limpia, moderna y muy convincente."</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container contact-grid">
+        <article class="contact-card reveal">
+          <span class="eyebrow">✉️ Escríbenos</span>
+          <h3>Contáctanos</h3>
+          <p>¿Tienes preguntas sobre tu próximo viaje? Nuestro equipo te responde en menos de 24 horas.</p>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div>
+                <label for="name">Nombre</label>
+                <input id="name" name="name" type="text" placeholder="Tu nombre" required />
+              </div>
+              <div>
+                <label for="email">Correo</label>
+                <input id="email" name="email" type="email" placeholder="tu@correo.com" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="destination">Destino soñado</label>
+              <select id="destination" name="destination">
+                <option value="">Selecciona una opción</option>
+                <option>París</option>
+                <option>Roma</option>
+                <option>Tokio</option>
+                <option>Cartagena</option>
+                <option>Dubái</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message">Cuéntanos tu viaje</label>
+              <p class="muted" style="font-size:0.84rem;margin-bottom:8px;line-height:1.5">Usa el siguiente formato para que podamos preparar tu itinerario al instante:</p>
+              <textarea id="message" name="message" rows="7" placeholder="Destino: París, Francia&#10;Fechas: 15/06/2026 al 22/06/2026&#10;Viajeros: 2 personas&#10;Tipo de viaje: Cultural&#10;Presupuesto: medio&#10;Notas: hoteles céntricos, dieta vegetariana"></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+            <p class="form-response" id="formResponse"></p>
+          </form>
+        </article>
+
+        <aside class="contact-card reveal">
+          <span class="eyebrow">📬 Newsletter</span>
+          <h3>Recibe ideas para tu próximo viaje</h3>
+          <p>Suscríbete para obtener rutas, consejos, presupuestos y destinos recomendados con inspiración semanal.</p>
+
+          <div class="newsletter">
+            <div>
+              <h4 class="newsletter-title">Newsletter WayTure</h4>
+              <p class="muted">Consejos prácticos, ofertas y destinos reales para viajeros curiosos.</p>
+            </div>
+            <form id="newsletterForm">
+              <label class="sr-only" for="newsletterEmail">Correo</label>
+              <input id="newsletterEmail" name="newsletterEmail" type="email" placeholder="Ingresa tu correo" required />
+              <button class="btn btn-accent" type="submit">Suscribirme</button>
+              <p class="form-response" id="newsletterResponse"></p>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <aside class="floating-offer" id="floatingOffer" aria-label="Oferta especial">
+    <button class="offer-close" id="closeOffer" type="button" aria-label="Cerrar oferta">&times;</button>
+    <p class="mini">Oferta especial</p>
+    <h3 class="offer-title">Hasta 30% de descuento en tu próximo itinerario premium</h3>
+    <p class="offer-copy">Diseña tu itinerario completo, guarda tus destinos favoritos y controla tu presupuesto en un solo lugar.</p>
+    <div class="offer-actions">
+      <a class="chip" href="#planificador">Probar ahora</a>
+      <a class="chip" href="#contacto">Más info</a>
+    </div>
+  </aside>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong class="footer-brand">© 2026 WayTure - Viajes que inspiran</strong>
+        <p class="muted">Tu compañero de viaje inteligente.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#funciones">Funciones</a>
+        <a href="admin-viajes.html" data-admin-link hidden>Panel Admin</a>
+        <a href="panel-usuario.html#mis-viajes" data-user-link hidden>Mi panel</a>
+        <a href="rastreo-viaje.html">Rastreo</a>
+        <a href="#multimedia">Multimedia</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/index-page.js"></script>
+  <script type="module" src="js/auth-state.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro | WayTure</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+  <link rel="stylesheet" href="css/registro.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container header-wrap">
+      <a class="logo" href="index.html" aria-label="Volver al inicio">
+        <span class="logo-badge" aria-hidden="true">
+          <img src="assets/WayTureNoMAP.png" alt="WayTure">
+        </span>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#funciones">Funciones</a>
+        <a href="login.html">Login</a>
+        <a href="registro.html" class="btn">Registro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-layout">
+      <section class="auth-card">
+        <div>
+          <span class="eyebrow">Cuenta nueva</span>
+          <h2>Crear cuenta</h2>
+          <p>Regístrate para guardar tus destinos favoritos, tus notas y tu próximo itinerario en WayTure.</p>
+        </div>
+
+        <form id="registerForm">
+          <div class="double-field">
+            <div>
+              <label for="registerName">Nombre</label>
+              <input id="registerName" name="registerName" type="text" placeholder="Tu nombre" required>
+            </div>
+
+            <div>
+              <label for="registerAlias">Usuario</label>
+              <input id="registerAlias" name="registerAlias" type="text" placeholder="Tu alias" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="registerEmail">Correo</label>
+            <input id="registerEmail" name="registerEmail" type="email" placeholder="tu@correo.com" required>
+          </div>
+
+          <div class="double-field">
+            <div>
+              <label for="registerPassword">Contraseña</label>
+              <input id="registerPassword" name="registerPassword" type="password" placeholder="Crea una contraseña" required minlength="6">
+            </div>
+
+            <div>
+              <label for="registerPasswordConfirm">Confirmar contraseña</label>
+              <input id="registerPasswordConfirm" name="registerPasswordConfirm" type="password" placeholder="Repítela" required minlength="6">
+            </div>
+          </div>
+
+          <button class="submit-btn" type="submit">Crear cuenta WayTure</button>
+        </form>
+
+        <div id="registerResponse" class="response-box" aria-live="polite"></div>
+
+        <p>¿Ya tienes cuenta? <a class="switch-link" href="login.html">Inicia sesión aquí</a></p>
+      </section>
+
+      <section class="info-panel">
+        <div class="info-content">
+          <h1>Empieza a diseñar viajes que sí provocan salir ya</h1>
+          <p>Crea tu acceso en segundos y guarda experiencias, presupuesto, destinos soñados y rutas personalizadas en un solo lugar.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 WayTure - Viajes que inspiran</p>
+  </footer>
+
+  <script type="module" src="js/register-page.js"></script>
+</body>
+</html>
